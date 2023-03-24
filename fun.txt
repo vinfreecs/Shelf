@@ -1,0 +1,53 @@
+<div className="flex space-x-4 ml-2 pt-3">
+<div>
+  {/* <h1 className=" pt-10 font-bold text-5xl pl-10">Reading</h1> */}
+  <img
+    className=" h-auto w-auto pt-10 pl-10 rounded-3xl "
+    src="https://s3-us-west-2.amazonaws.com/tabs.web.media/b/b/bbbz/bbbz-square-1536.jpg"
+    alt="Oathbringer"
+  />
+  <div className="flex space-x-4 pt-3 pl-8 mx-4">
+    <div>
+      {show && (
+        <input
+          type="number"
+          id="progress"
+          name="progress"
+          min="0"
+          max="100"
+          value={progress}
+          onChange={updateProgress}
+          className="appearance-none w-24 py-2 px-3 text-gray-700 bg-white border border-gray-400 rounded-md leading-tight focus:outline-none focus:shadow-outline"
+        />
+      )}
+    </div>
+    <div className=" m-10 rounded-3xl">
+      <progress
+        onClick={handleShow}
+        value={progress}
+        max="100"
+        className="mt-4 w-96 h-2 bg-red-600 "
+      />
+    </div>
+  </div>
+</div>
+<div className="flex flex-col px-8">
+  <div className="flex px-9 pt-10">
+    <h1 className=" pt-10 font-bold text-3xl">WORDS OF RADIANCE</h1>
+  </div>
+  <div className="flex px-10 pt-10">
+    <p className=" text-sky-400 font-bold">Brandon Sanderson</p>
+    <p className="pl-2">1200</p>
+  </div>
+  <div>
+    <p className=" py-10 px-10 mr-96">
+      Words of Radiance is an epic fantasy novel written by American
+      author Brandon Sanderson and the second book in The Stormlight
+      Archive series.[2] The novel was published on March 4, 2014, by
+      Tor Books.[3] Words of Radiance consists of one prologue, 89
+      chapters, an epilogue and 14 interludes. It is preceded by The Way
+      of Kings and followed by Oathbringer.
+    </p>
+  </div>
+</div>
+</div>
