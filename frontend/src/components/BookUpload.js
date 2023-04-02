@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig.js";
 
-function BookUpload() {
+function BookUpload(props) {
   const [book, setBook] = useState({
     Title: "",
     Author: "",
@@ -26,7 +26,7 @@ function BookUpload() {
   };
 
   const handleSubmit = async () => {
-    const collectionRef = collection(db, "books");
+    const collectionRef = collection(db, `users/${props.userId}/books`);
 
     setBook({
       Title: "",
@@ -124,7 +124,7 @@ function BookUpload() {
                   />
                   <input
                     type="text"
-                    placeholder="book_shelf"
+                    placeholder="book_shelf:read,reading,to-read"
                     name="book_shelf"
                     value={book.book_shelf}
                     onChange={handleChange}

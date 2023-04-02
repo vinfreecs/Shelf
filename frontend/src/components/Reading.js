@@ -1,20 +1,21 @@
 import React from "react";
 import { db } from "../firebaseConfig.js";
-import { onSnapshot, collection } from "@firebase/firestore";
+import { onSnapshot, collection,CollectionReference } from "@firebase/firestore";
 import { useEffect, useState } from "react";
 import BookEdit from "./BookEdit.js";
 import BookDelete from "./BookDelete.js";
 
-function Reading() {
+function Reading(props) {
   const [progress, setProgress] = useState(0);
   const [show, setShow] = useState(false);
 
   const [readBooks, setReadbooks] = useState([]);
   
   const [isOpen, setIsOpen] = useState(false);
+  
   useEffect(
     () =>
-      onSnapshot(collection(db, "books"), (snapshot) => {
+      onSnapshot(collection(db,`users/${props.userId}/books`), (snapshot) => {
         setReadbooks(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         );
@@ -49,12 +50,12 @@ function Reading() {
 
   return (
     <div>
-      {isOpen && <BookEdit sendBook={sendBook} setIsOpen={setIsOpen} />}
+      {isOpen && <BookEdit userId={props.userId} sendBook={sendBook} setIsOpen={setIsOpen} />}
       {openDelete && (
         <BookDelete deleteId={deleteId} setOpenDelete={setOpenDelete} />
       )}
-      {toReadBooks.map((book) => 
-      <div className="md:flex flex-collg:flex ml-20 pt-5">
+      {toReadBooks.map((book,ind) => 
+      <div className="md:flex flex-collg:flex ml-20 pt-5" key={ind}>
       
       <div className="flex flex-col items-center h-[60%] w-[30%] m-4">
         <img
@@ -131,7 +132,7 @@ function Reading() {
         
         </div>
         
-        <div className="flex-1 flex font-bold text-stone-200 pr-96 overflow-auto">
+        <div className="md:flex pr-10 lg:flex-1 flex font-bold text-stone-200 lg:pr-72 overflow-auto">
           <p>
             {book.description}
           </p>

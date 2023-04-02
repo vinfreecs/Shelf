@@ -16,7 +16,7 @@ function BookEdit(props) {
       });
     };
     const handleEdit = async() => {
-        const docRef =doc(db,"books",props.sendBook.id);
+        const docRef =doc(db,`users/${props.userId}/books`,props.sendBook.id);
         setDoc(docRef,book)
         handleClose(false);
     }
@@ -96,7 +96,7 @@ function BookEdit(props) {
                     />
                     <input
                       type="text"
-                      placeholder="book_shelf"
+                      placeholder="book_shelf:read,reading,to-read"
                       name="book_shelf"
                       value={book.book_shelf}
                       onChange={handleChange}

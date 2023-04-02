@@ -7,7 +7,7 @@ function BookDelete(props) {
     props.setOpenDelete(false);
   };
   const handleDelete = async () => {
-    const docRef = doc(db, "books", props.deleteId);
+    const docRef = doc(db, `users/${props.userId}/books`, props.deleteId);
     await deleteDoc(docRef);
     props.setOpenDelete(false);
   };

@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <nav className="group fixed h-[100vh] w-16 bg-black hover:w-48 transition-all duration-600 hover:inline ">
-      <ul className="flex flex-col items-center p-0 m-0 list-none h-full">
+      <ul className="flex flex-col items-center m-0 list-none h-full pr-4">
         <li className="w-full">
           <a
             href="/"
@@ -33,10 +33,10 @@ function Navbar() {
             >
               <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z" />
             </svg>
-            <span className="hidden group-hover:inline ml-4">Reading</span>
+            <span className="hidden group-hover:inline ml-4">Books</span>
           </a>
         </li>
-        <li className="w-full">
+        {/* <li className="w-full">
           <a
             href="/read"
             className="flex items-center h-20 text-white hover:filter hover:grayscale-100 hover:opacity-70 transition duration-500 text-primary no-underline"
@@ -67,7 +67,7 @@ function Navbar() {
             </svg>
             <span className="hidden group-hover:inline ml-4">ToRead</span>
           </a>
-        </li>
+  </li>*/}
         <li className="w-full mt-auto">
           <a
             href="/list"

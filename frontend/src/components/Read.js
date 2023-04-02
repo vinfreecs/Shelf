@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import BookEdit from "./BookEdit.js";
 import BookDelete from "./BookDelete.js";
 
-function Read() {
+function Read(props) {
   const [readBooks, setReadbooks] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
   useEffect(
     () =>
-      onSnapshot(collection(db, "books"), (snapshot) => {
+      onSnapshot(collection(db, `users/${props.userId}/books`), (snapshot) => {
         setReadbooks(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         );
@@ -36,9 +36,9 @@ function Read() {
       <h1 className="text-white ml-20 mt-48 pl-28 uppercase font-bold text-3xl">
         READ
       </h1>
-      {isOpen && <BookEdit sendBook={sendBook} setIsOpen={setIsOpen} />}
+      {isOpen && <BookEdit userId={props.userId} sendBook={sendBook} setIsOpen={setIsOpen} />}
       {openDelete && (
-        <BookDelete deleteId={deleteId} setOpenDelete={setOpenDelete} />
+        <BookDelete userId={props.userId} deleteId={deleteId} setOpenDelete={setOpenDelete} />
       )}
 
       <div className="m-20 pl-24">
