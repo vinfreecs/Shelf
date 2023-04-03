@@ -6,13 +6,7 @@ import {getAuth, GoogleAuthProvider} from "firebase/auth"
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDXBYVhkORPfEW-Ko7lAwBM6qZbSUeWk9I",
-  authDomain: "shelf-76b17.firebaseapp.com",
-  projectId: "shelf-76b17",
-  storageBucket: "shelf-76b17.appspot.com",
-  messagingSenderId: "962435293457",
-  appId: "1:962435293457:web:3f5f4b5dc9a2a34e63ecb0",
-  measurementId: "G-JRS3XVNGFD"
+  //place your api key and firebase details
 };
 
 // Initialize Firebase
